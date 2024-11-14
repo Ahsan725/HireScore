@@ -1,0 +1,67 @@
+<!-- job_analyzer/analyzer/templates/analyzer/results.html -->
+{% extends "analyzer/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Top Words for This Job Description: {{ job_desc.title }}</h1>
+
+    <!-- Section: Top Words for Job Description -->
+    <h3>Ensure the Following Words are Present in Your Resume for ATS Optimization!</h3>
+    <p>If some of these words are irrelevant, select them to add to the stop words list and exclude them from future analyses.</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        
+        <div class="list-group">
+            {% for word_count in word_counts %}
+                <label class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input class="form-check-input me-2" type="checkbox" name="selected_words" value="{{ word_count.word }}">
+                        {{ word_count.word }}
+                    </div>
+                    <span class="badge bg-primary rounded-pill">{{ word_count.count }}</span>
+                </label>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success">Add Selected Words to Stop Words</button>
+        </div>
+    </form>
+
+    <!-- Section: Resume Match Analysis -->
+    <hr class="my-5">
+    <h2 class="text-center mb-4">Resume Match Analysis</h2>
+
+    <!-- Matched Words -->
+    <h4>Matched Words in Your Resume</h4>
+    <p>The following words were found in both the job description and your resume:</p>
+    <ul class="list-group mb-4">
+        {% for word in matching_words %}
+            <li class="list-group-item">{{ word }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Missing Words -->
+    <h4>Missing Words</h4>
+    <p>The following keywords from the job description are missing in your resume:</p>
+    <ul class="list-group mb-4">
+        {% for word in missing_words %}
+            <li class="list-group-item">{{ word }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Suggested Words -->
+    <h4>Suggested Words to Add</h4>
+    <p>Consider adding these commonly occurring words in job descriptions to enhance your resume:</p>
+    <ul class="list-group mb-4">
+        {% for word_info in top_words %}
+            <li class="list-group-item">{{ word_info.word }} ({{ word_info.total_count }} occurrences)</li>
+        {% endfor %}
+    </ul>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'analyze_description' %}" class="btn btn-primary">Analyze Another Job Description</a>
+    </div>
+</div>
+{% endblock %}
