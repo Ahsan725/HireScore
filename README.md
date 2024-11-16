@@ -4,6 +4,7 @@ HireScore is a powerful Django web application designed to optimize your resume 
 
 ## Features
 
+- **AI Features**: Some really cool AI features coming very soon!
 - **Job Description Analysis**: Upload a job description, and the app will extract and save the most relevant keywords.
 - **Resume Matching**: Compare your resume against job description keywords to see which skills or keywords are missing.
 - **Custom Stop Words**: Add specific words to a custom stop words list to exclude irrelevant terms from analyses.
@@ -18,13 +19,6 @@ HireScore is a powerful Django web application designed to optimize your resume 
 ![Home Page](/gitassets/4.png)
 ![Home Page](/gitassets/5.png)
 ![Home Page](/gitassets/6.png)
-
-## Technologies Used
-
-- **Django**: Backend framework for building the web application.
-- **SQLite**: Database for storing job descriptions, keywords, and custom stop words.
-- **HTML/CSS/JavaScript**: Frontend technologies for creating a responsive and interactive UI.
-- **Bootstrap**: Used for styling the interface.
 
 ## Getting Started
 
