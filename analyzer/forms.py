@@ -8,7 +8,7 @@ class JobDescriptionForm(forms.ModelForm):
         widget=forms.Textarea(attrs={
             'class': 'form-control', 
             'rows': 6, 
-            'placeholder': 'Paste your resume text here...'
+            'placeholder': 'Paste the resume text here...'
         }),
         required=False,
         label="Paste Your Resume Text"

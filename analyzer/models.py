@@ -31,7 +31,7 @@ class CustomStopWord(models.Model):
 from django.db import models
 
 class VisitorCount(models.Model):
-    count = models.PositiveIntegerField(default=0)  # Field to store the count of visitors
+    count = models.PositiveIntegerField(default=99)  # Field to store the count of visitors
 
     def __str__(self):
         return f"Visitor Count: {self.count}"
