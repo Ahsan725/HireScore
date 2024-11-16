@@ -12,8 +12,12 @@ HireScore is a powerful Django web application designed to optimize your resume 
 
 ## Screenshots
 
-![Home Page](path/to/screenshot1.png)
-![Results Page](path/to/screenshot2.png)
+![Home Page](/gitassets/1.png)
+![Home Page](/gitassets/2.png)
+![Home Page](/gitassets/3.png)
+![Home Page](/gitassets/4.png)
+![Home Page](/gitassets/5.png)
+![Home Page](/gitassets/6.png)
 
 ## Technologies Used
 
